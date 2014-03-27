@@ -1,0 +1,346 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <title>TCL产品大会 邀请函</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <script src="js/jquery-1.9.1.min.js"></script>
+        <script src="js/touch-0.2.13.min.js"></script>
+        <style>
+        *{padding:0;margin:0;}
+        body,html{
+            background:#000;
+        }
+        #slide-1{
+            background:url(images/1.jpg) no-repeat left top;
+        }
+	#slide-2{
+		    background:url(images/2.jpg) no-repeat left top;
+		}
+	#slide-3{
+		    background:url(images/3.jpg) no-repeat left top;
+		}
+	#slide-1,#slide-2,#slide-3{
+		    background-size:100%;
+		}
+	@-webkit-keyframes arrowup
+	{
+		0%   {bottom:20px;}
+		50% {bottom:26px;}
+		100%   {bottom:20px;}
+	}
+
+	@-webkit-keyframes arrowdown
+	{
+		0%   {top:60px;}
+		50% {top:66px;}
+		100%   {top:60px;}
+	}
+	.arrowup{
+	    bottom:60px;
+	    background:url(images/arrow_up.png) no-repeat center;
+	    -webkit-animation:arrowup 0.8s;
+	    -webkit-animation-iteration-count:infinite;
+
+	    }
+	.arrowdown{
+	    top:40px;
+	    background:url(images/arrow_down.png) no-repeat center;
+	    -webkit-animation:arrowdown 0.8s;
+	    -webkit-animation-iteration-count:infinite;
+
+	    }
+
+	.arrowup,.arrowdown{
+		position:absolute;
+		left:50%;
+		margin-left:-25px;
+		height:50px;
+		width:50px;
+		background-size:100%;
+	}
+	#bottombar{
+	    position:absolute;
+	    bottom:0;
+	    left:0;
+	    background:rgba(255,255,255,.5);
+	    height:60px;
+	    width:100%;
+	}
+	#bottombar ul{
+	margin-top:-23px;
+	}
+	#bottombar  li{
+	    float:left;
+	    width:33.3%;
+	    text-align:center;
+	    list-style:none;
+	}
+	#bottombar  li span{
+	    display:inline-block;
+	    width:45px;
+	    padding-top:55px;
+	    background-image:url(images/buttons.png);
+	    background-repeat:no-repeat;
+	    background-size:500%;
+	    color:#fff;
+	    text-decoration:none;
+	    font-size:12px;
+	}
+	#time{
+	background-position:-90px 0
+	}
+	#map{
+	background-position:-180px 0
+	}
+	.pop{
+	    position:absolute;
+	    bottom:110px;
+	    width:100%;
+	    z-index:9998;
+	}
+	.pop .content{
+	position:relative;
+	    margin:0 auto;
+	    width:280px;
+	    border-radius:0 0 36px 36px;
+	    background:rgba(255,255,255,.6);
+	    padding-bottom:30px;
+
+	}
+	.pop .close{
+	    position:absolute;
+	    right:-10px;
+	    height:44px;
+	    width:45px;
+	    z-index:9999;
+	    text-align:right;
+	}
+
+
+	.pop-2 .close, .pop-3 .close{
+	    top:-10px;
+	}
+
+	.pop-1 .close{
+	    right:10px;
+	    bottom:260px;
+	    }
+
+	.pop-1{
+	    
+	    left:50%;
+	    background:url(images/pop_1_new.png?v=2) no-repeat top;
+	    margin-left:-160px;
+	    width:320px;
+	    height:413px;
+	    background-size:100%;
+	}
+	.pop-2 p{
+	    padding:15px 20px 0;
+	    font-size:12px;
+	    color:#fff;
+	    line-height:20px;
+	}
+	.pop-3{
+	    text-align:center;
+	}
+	.pop-2,.pop-3{
+	    padding-top:10px;
+	}
+	#loading{
+	    position:absolute;
+	    width:44px;
+	    height:44px;
+	    top:50%;
+	    left:50%;
+	    margin:-22px 0 0 -22px;
+	    -webkit-blur:3px;
+	}
+
+
+        </style>
+    </head>
+
+    <body>
+    <div id="loading"><img src="images/loading.gif" height="44" width="44"/></div>
+    <div id="content" style="display:none">
+        <div id="slide-1" class="slide"></div>
+        <div id="slide-2" class="slide"></div>
+        <div id="slide-3" class="slide"></div>
+                
+    </div>
+    <div id="bottombar" style="display:none">
+        <ul>
+            <li><span id="message">信息</span></li>
+            <li><span id="time">日程</span></li>
+            <li><span id="map">地址</span></li>
+        </ul>
+    </div>
+
+    <div class="pop pop-1" style="display:none"><span class="close"><img src="images/close.png" width="25" class="nc"/></span></div>
+
+    <div class="pop pop-2" style="display:none">
+        <div class="content">
+        <span class="close"><img src="images/close.png" width="25" class="nc"/></span>
+        <img src="images/pop_2.jpg" width="100%"/>
+        <p>时间：2014.04.09（星期三）14:00-16:00</p>
+        <p>地址：深圳市南山区华侨城白石路东8号OCT创意展示中心</p>
+        </div>
+    </div>
+
+    <div class="pop pop-3" style="display:none">
+        <div class="content">
+        <span  class="close"><img src="images/close.png" width="25" class="nc"/></span>
+        <img src="images/pop_3.png" width="70%"/>
+        <p style="color:#000;text-align:center;font-size:12px;padding:10px 20px;">地址：深圳市南山区华侨城白石路东8号OCT创意展示中心</p>
+        </div>
+    </div>
+
+    <span class="arrowdown" style="display:none"></span>
+    <span class="arrowup" style="display:none"></span>
+
+    </body>
+<script>
+document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+	WeixinJSBridge.call('hideToolbar');
+	
+});
+setTimeout(function(){
+var images = ['images/1.jpg', 'images/2.jpg' , 'images/3.jpg'];
+	    loadimg(images,null,function(){
+	    $('#loading').fadeOut(500,function(){
+		$('#content').fadeIn(500,function(){resetF()});
+		$('.arrowup').show();
+	    });
+
+    },null);
+
+},1000);
+
+function resetF(){
+//$(function(){
+    //events
+    var eles = $('.slide'),viewheight = $(document).height(),timer,swiptime = 1;
+        $.each(eles, function(i, item){
+            $(item).css('height',viewheight);
+
+            touch.on(item, 'touchstart', function(e){
+                 e.preventDefault();
+            });
+            
+            touch.on(item, 'swipeup', function(e){
+                var index = $(item).index() ;
+                if(index == eles.length -1 ) return;
+                /*$('#content').animate({'transform:translateY':-Math.abs(viewheight)*($(item).index()+1)}, 700 , function(){
+                timer && clearTimeout(timer) || setTimeout(function(){
+                    setArrow(Math.abs(parseInt($('#content').css('top'))));
+                },200);
+
+                });
+                */
+                $('#content')[0].style.cssText = '-webkit-transition-duration:700ms;'+'-webkit-transform:translateY('+(-viewheight*(index+1))+'px);';
+                timer && clearTimeout(timer) || (timer = setTimeout(function(){
+                        swiptime+=1;
+                        setArrow(swiptime);
+                    },200));
+            });
+            touch.on(item, 'swipedown', function(e){
+                var index = $(item).index() ;
+                if(index == 0 ) return;
+                /*
+                $('#content').animate({top:-Math.abs(viewheight)*($(item).index()-1)}, 700 , function(){
+                    timer && clearTimeout(timer) || setTimeout(function(){
+                        setArrow(Math.abs(parseInt($('#content').css('top'))));
+                    },200);
+                });
+                */
+                $('#content')[0].style.cssText = '-webkit-transition-duration:700ms;'+'-webkit-transform:translateY('+(-viewheight*(index-1))+'px);';
+                    timer && clearTimeout(timer) || (timer = setTimeout(function(){
+                        swiptime-=1;
+                        setArrow(swiptime);
+                    },200));
+
+            });
+
+        });
+        touch.on($('.pop,.arrowup,.arrowdown,#bottombar,#loading'), 'touchstart',function(e){
+                 e.preventDefault();
+        })
+        function setArrow(index){
+           var pos =  Math.abs($('#content').css('transform').match(/\-?[0-9]+\.?[0-9]*/g)[5]);
+            if(index == 1){
+                $('.arrowup').show('slow');
+                $('.arrowdown').hide('fast');
+                $('#bottombar').fadeOut('fast')
+                $('.pop').hide();
+            }
+            if(index == 2){
+                $('.arrowdown').show('slow');
+                $('.arrowup').show('slow');
+                $('#bottombar').fadeOut('fast')
+                $('.pop').hide();
+            }
+            if(index == 3){
+                //$('.arrowdown').fadeOut(100);
+                $('.arrowup').fadeOut(100,function(){
+                    $('#bottombar').fadeIn('fast')
+                });
+            }
+        }
+        touch.on($('.close,.pop'), 'tap', function(e){
+            $('.pop').hide();
+        });
+        touch.on($('#bottombar li span'), 'tap', function(e){
+            $('.pop').fadeOut(150);
+            switch(this.id){
+                case 'message':
+                    $('.pop-1').fadeIn(150);
+                    break;
+                case 'time':
+                    $('.pop-2').fadeIn(150);
+                    $('.pop-2')[0].clientLeft;
+                    break;
+
+                case 'map':
+                    $('.pop-3').fadeIn(150);
+                    $('.pop-3')[0].clientLeft;
+                    break;
+            }
+        });
+
+        //image lazyload
+//});
+}
+//预先加载图片
+function loadimg(arr,funLoading,funOnLoad,funOnError){  
+    var numLoaded=0,  
+        numError=0,  
+        isObject=Object.prototype.toString.call(arr)==="[object Object]" ? true : false;  
+
+    var arr=isObject ? arr.get() : arr;  
+        for(a in arr){  
+            var src=isObject ? $(arr[a]).attr("data-src") : arr[a];  
+                preload(src,arr[a]);  
+        }  
+
+    function preload(src,obj){  
+        var img=new Image();  
+            img.onload=function(){  
+                numLoaded++;  
+                funLoading && funLoading(numLoaded,arr.length,src,obj);  
+                funOnLoad && numLoaded==arr.length && funOnLoad(numError);  
+            };  
+            img.onerror=function(){  
+                numLoaded++;  
+                numError++;  
+                funOnError && funOnError(numLoaded,arr.length,src,obj);  
+            }  
+        img.src=src;  
+    }  
+}
+//  
+
+</script>
+</html>
+
